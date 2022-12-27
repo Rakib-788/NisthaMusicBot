@@ -2,8 +2,8 @@ from telethon import events, Button
 from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChannelParticipantsAdmins, ChatBannedRights
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from NisthaMusic.status import *
 from Config import Config
 
 CLEANER_HELP = """
@@ -38,7 +38,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 )
 
 
-@Anon.on(events.NewMessage(pattern="^[!?/]zombies ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]zombies ?(.*)"))
 @is_admin
 async def clean(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -90,6 +90,6 @@ async def clean(event, perm):
 
     await cleaning_zombies.edit(stats)
 
-@Anon.on(events.callbackquery.CallbackQuery(data="zombies"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="zombies"))
 async def _(event):
     await event.edit(CLEANER_HELP, buttons=[[Button.inline(" ʙᴀᴄᴋ ", data="help")]])
