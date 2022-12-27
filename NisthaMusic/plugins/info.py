@@ -1,6 +1,6 @@
 from telethon import events, Button, types
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from NisthaMusic.status import *
 from Config import Config
 from telethon.tl.types import ChannelParticipantsAdmins
 from datetime import timedelta
@@ -15,7 +15,7 @@ MISC_HELP = """
 ‣ `/info` - ᴛᴏ ɢᴇᴛ ɪɴғᴏ ᴏғ ᴀ ᴜsᴇʀ.
 """
 
-@Anon.on(events.NewMessage(pattern="^[!?/]id"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]id"))
 async def id(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -36,7 +36,7 @@ async def id(event):
 
     await event.reply(f"User {msg.sender.first_name} id is `{msg.sender_id}`.")
  
-@Anon.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
 async def info(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -73,6 +73,6 @@ async def info(event):
     await event.reply(textn.format(ha.first_name, ha.last_name, ha.id, ha.username, sedd.count, hu.about, ha.id))
    
 
-@Anon.on(events.callbackquery.CallbackQuery(data="misc"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="misc"))
 async def _(event):
     await event.edit(MISC_HELP, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
