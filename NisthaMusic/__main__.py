@@ -1,13 +1,13 @@
 import glob
 from pathlib import Path
-from Anon.utils import load_plugins
+from NisthaMusic.utils import load_plugins
 import logging
-from Anon import Anon
+from NisthaMusic import NisthaMusic
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.INFO)
 
-path = "Anon/plugins/*.py"
+path = "NisthaMusic/plugins/*.py"
 files = glob.glob(path)
 for name in files:
     with open(name) as a:
@@ -15,11 +15,11 @@ for name in files:
         plugin_name = patt.stem
         load_plugins(plugin_name.replace(".py", ""))
  
-bsdk = "» sᴜᴄᴄᴇssғᴜʟʟʏ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ !"
+bsdk = "» sᴜᴄᴄᴇssғᴜʟʟʏ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ 🎉🎉 !"
 chumt = "» ᴘʟᴇᴀsᴇ ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ !"   
 
 print(bsdk)
 print(chumt)
 
 if __name__ == "__main__":
-    Anon.run_until_disconnected()
+    NisthaMusic.run_until_disconnected()
