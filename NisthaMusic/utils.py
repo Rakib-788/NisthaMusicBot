@@ -11,4 +11,4 @@ def load_plugins(plugin_name):
     load.logger = logging.getLogger(plugin_name)
     spec.loader.exec_module(load)
     sys.modules["NisthaMusic.plugins." + plugin_name] = load
-    print("» ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ ||. " + plugin_name)
+    print("» ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ || " + plugin_name)
