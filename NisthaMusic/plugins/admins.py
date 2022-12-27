@@ -1,18 +1,18 @@
 from telethon import events, Button
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from NisthaMusic.status import *
 from Config import Config
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
 
-@Anon.on(events.callbackquery.CallbackQuery(data="admin"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="admin"))
 async def _(event):
 
     await event.edit(ADMIN_TEXT, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
 
-@Anon.on(events.callbackquery.CallbackQuery(data="play"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="play"))
 async def _(event):
 
     await event.edit(PLAY_TEXT, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
