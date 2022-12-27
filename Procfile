@@ -1,1 +1,1 @@
-worker: python3 -m Anon
+worker: python3 -m NisthaMusic
