@@ -14,7 +14,7 @@ from pytgcalls.exceptions import (
     NoActiveGroupCall,
     NotInGroupCallError
 )
-from Anon.status import *
+from NisthaMusic.status import *
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest
 import telethon.utils
@@ -27,11 +27,11 @@ from youtubesearchpython import VideosSearch
  
 fotoplay = "https://te.legra.ph/file/c6c2f531f2161f6fc5f45.jpg"
 ngantri = "https://te.legra.ph/file/c6c2f531f2161f6fc5f45.jpg"
-from Anon import call_py, Anon, client as Client
-owner = "5956363311"
-from Anon.helpers.yt_dlp import bash
-from Anon.helpers.chattitle import CHAT_TITLE
-from Anon.helpers.queues import (
+from NisthaMusic import call_py, NisthaMusic, client as Client
+owner = "5613370564"
+from NisthaMusic.helpers.yt_dlp import bash
+from NisthaMusic.helpers.chattitle import CHAT_TITLE
+from NisthaMusic.helpers.queues import (
     QUEUE,
     add_to_queue,
     clear_queue,
@@ -41,8 +41,8 @@ from Anon.helpers.queues import (
 from telethon import Button, events
 from Config import Config
 
-from Anon.helpers.thumbnail import gen_thumb
-from Anon.helpers.joiner import AssistantAdd
+from NisthaMusic.helpers.thumbnail import gen_thumb
+from NisthaMusic.helpers.joiner import AssistantAdd
 
 def vcmention(user):
     full_name = get_display_name(user)
@@ -119,7 +119,7 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
-@Anon.on(events.callbackquery.CallbackQuery(data="cls"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="cls"))
 async def _(event):
 
      await event.delete()
@@ -130,7 +130,7 @@ btnn =[
 
 
 #play
-@Anon.on(events.NewMessage(pattern="^[?!/]play"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]play"))
 @AssistantAdd
 async def play(event):
     title = ' '.join(event.text[5:])
@@ -228,7 +228,7 @@ async def play(event):
 
 
 #end
-@Anon.on(events.NewMessage(pattern="^[/?!]end"))
+@NisthaMusic.on(events.NewMessage(pattern="^[/?!]end"))
 @is_admin
 async def vc_end(event, perm):
     chat_id = event.chat_id
@@ -246,7 +246,7 @@ async def vc_end(event, perm):
 
 
 
-@Anon.on(events.NewMessage(pattern="^[?!/]vplay"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]vplay"))
 @AssistantAdd
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
@@ -410,7 +410,7 @@ async def vplay(event):
 
 
 #playlist
-@Anon.on(events.NewMessage(pattern="^[?!/]playlist"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]playlist"))
 @is_admin
 async def vc_playlist(event, perm):
     chat_id = event.chat_id
@@ -440,7 +440,7 @@ async def vc_playlist(event, perm):
 
 
 #leavevc
-@Anon.on(events.NewMessage(pattern="^[?!/]leavevc"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]leavevc"))
 @is_admin
 async def leavevc(event, perm):
     xnxx = await event.reply("⇆ ᴘʀᴏᴄᴇssɪɴɢ")
@@ -457,7 +457,7 @@ async def leavevc(event, perm):
 
 
 
-@Anon.on(events.NewMessage(pattern="^[?!/]skip"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]skip"))
 @is_admin
 async def vc_skip(event, perm):
     chat_id = event.chat_id
@@ -486,7 +486,7 @@ async def vc_skip(event, perm):
             await event.reply(DELQUE)
 
 
-@Anon.on(events.NewMessage(pattern="^[?!/]pause"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]pause"))
 @is_admin
 async def vc_pause(event, perm):
     chat_id = event.chat_id
@@ -501,7 +501,7 @@ async def vc_pause(event, perm):
 
 
 
-@Anon.on(events.NewMessage(pattern="^[?!/]resume"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]resume"))
 @is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id
