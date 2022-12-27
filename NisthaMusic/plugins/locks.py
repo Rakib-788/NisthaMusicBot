@@ -1,6 +1,6 @@
 from telethon import events, Button, types
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from NisthaMusic.status import *
 from Config import Config
 
 LOCKS_HELP = """
@@ -11,7 +11,7 @@ LOCKS_HELP = """
 ‣ `/locktypes` - ᴛᴏ ɢᴇᴛ ᴀ ʟɪsᴛ ᴏғ ᴍᴏᴅᴜʟᴇs ᴄᴀɴ ʙᴇ ʟᴏᴄᴋᴇᴅ.
 """
 
-@Anon.on(events.NewMessage(pattern="^[!?/]lock ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]lock ?(.*)"))
 @is_admin
 async def lock(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -63,7 +63,7 @@ async def lock(event, perm):
        await event.reply("ʟᴏᴄᴋᴇᴅ `ᴀʟʟ`.")
 
 
-@Anon.on(events.NewMessage(pattern="^[!?/]unlock ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]unlock ?(.*)"))
 @is_admin
 async def unlock(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -115,7 +115,7 @@ async def unlock(event, perm):
        await event.reply("ᴜɴʟᴏᴄᴋᴇᴅ `ᴀʟʟ`.")
 
 
-@Anon.on(events.NewMessage(pattern="^[!?/]locktypes"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]locktypes"))
 async def locktypes(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -135,7 +135,7 @@ async def locktypes(event):
 """
     await event.reply(TEXT)
 
-@Anon.on(events.callbackquery.CallbackQuery(data="locks"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="locks"))
 async def _(event):
 
     await event.edit(LOCKS_HELP, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
