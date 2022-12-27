@@ -7,7 +7,7 @@ class Config(object):
     STRING_SESSION = os.environ.get("STRING_SESSION", "1BVtsOIQBu7qvMo75ZwpI-9O25MJWS9sQlzja-MHFoLSqePFPXqFQrREm5VWJim8EXDozL9NL_5lnaYqc4W_8dt2edUbNwONGF1fIAhlrsP2INf9QXpHKiBVs2-w1_YsQKfYZLJb4LElQdqsdcq8ED-IjoPEjXvn6VMLqlkiYCepAkVXdWcjSyfdwzCVYou1b2eBmGR3gNANocceMx-l0X7Zp42H-k68UI5r81EOxMINGVzPtpC2m-nm7eMZSWbsWcpWpHGTPyEhgbsj5hHLQUDWUi_j0jwVcwsIMRLWJ4yes-NVLaIxnELgy-o_a6mmOI7NrJszJNqqNGNvmMS5cVmbb8-s89Mo=")
     HEROKU_MODE = os.environ.get("HEROKU_MODE", None)
     MANAGEMENT_MODE = os.environ.get("MANAGEMENT_MODE", None)
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "AnonMusicBot")
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "NisthaMusicBot")
     SUPPORT = os.environ.get("SUPPORT", "Hindi_English_Chatt")
     CHANNEL = os.environ.get("CHANNEL", "TheBotUpdate")
     START_IMG = os.environ.get("START_IMG", "https://te.legra.ph/file/535a7db55e251a316b807.jpg")
