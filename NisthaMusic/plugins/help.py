@@ -1,5 +1,5 @@
 from telethon import events, Button
-from Anon import Anon, BOT_USERNAME
+from NisthaMusic import NisthaMusic, BOT_USERNAME
 from Config import Config
 
 
@@ -13,7 +13,7 @@ btn =[
 HELP_TEXT = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʜᴇʟᴘ ᴍᴇɴᴜ sᴇᴄᴛɪᴏɴ\n➖➖➖➖➖➖➖➖➖➖➖➖➖➖\nᴄʟɪᴄᴋ ᴏɴ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ"
 
 
-@Anon.on(events.NewMessage(pattern="[!?/]help"))
+@NisthaMusic.on(events.NewMessage(pattern="[!?/]help"))
 async def help(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -24,13 +24,13 @@ async def help(event):
 
     await event.reply(HELP_TEXT, buttons=btn)
 
-@Anon.on(events.NewMessage(pattern="^/start help"))
+@NisthaMusic.on(events.NewMessage(pattern="^/start help"))
 async def _(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
     await event.reply(HELP_TEXT, buttons=btn)
 
-@Anon.on(events.callbackquery.CallbackQuery(data="help"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="help"))
 async def _(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
