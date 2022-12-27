@@ -1,8 +1,8 @@
 {
-    "name": "ᴀɴᴏɴ ᴍᴜsɪᴄ",
+    "name": "ɴɪsᴛʜᴀ ᴍᴜsɪᴄ",
     "description": "ᴍᴜsɪᴄ ᴀʟʟᴏᴡ ʏᴏᴜ ᴛᴏ sᴛʀᴇᴀᴍ ᴍᴜsɪᴄ ᴛʜʀᴏᴜɢʜ ᴛʜᴇ ᴛᴇʟᴇɢʀᴀᴍ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ.",
-    "keywords": ["Anon", "AnonMusic", "music", "voice chat", "telegram", "Private Music", "telethon"],
-    "repository": "https://github.com/Sumit0045/AnonMusic",
+    "keywords": ["Nistha", "NisthaMusic", "music", "voice chat", "telegram", "Private Music", "telethon"],
+    "repository": "https://github.com/Sumit0045/NisthaMusicBot",
   "stack": "container",
     "env": {
         "STRING_SESSION": {
@@ -27,7 +27,7 @@
         "BOT_USERNAME": {
             "description": "Fill there your bot username",
             "required": false,
-            "value": "AnonMusicBot"
+            "value": "NisthaMusicBot"
         },
         "ASSISTANT_ID": {
             "description": "Fill there your Assistant id",
