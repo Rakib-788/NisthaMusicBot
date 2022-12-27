@@ -11,12 +11,11 @@ import telethon.utils
 from telethon.tl import functions
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
-from Anon import *
-from Anon.status import *
+from NisthaMusic import *
+from NisthaMusic.status import *
 
 
-
-@Anon.on(events.NewMessage(pattern="^[!?/]userbotjoin ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]userbotjoin ?(.*)"))
 @is_admin
 async def _(e, perm):
     chat_id = e.chat_id
@@ -36,7 +35,7 @@ async def _(e, perm):
             await e.reply(usage, parse_mode=None, link_preview=None )
 
 
-@Anon.on(events.NewMessage(pattern="^[!?/]pjoin ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]pjoin ?(.*)"))
 @is_admin        
 async def _(e, perm):
     chat_id = e.chat_id
