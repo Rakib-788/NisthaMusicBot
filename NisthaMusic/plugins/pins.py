@@ -20,7 +20,7 @@ async def get_pinned(event):
         return
     chat_id = (str(event.chat_id)).replace("-100", "")
 
-    Ok = await Anon.get_messages(event.chat_id, ids=types.InputMessagePinned()) 
+    Ok = await NisthaMusic.get_messages(event.chat_id, ids=types.InputMessagePinned()) 
     tem = f"The pinned message in {event.chat.title} is <a href=https://t.me/c/{chat_id}/{Ok.id}>here</a>."
     await event.reply(tem, parse_mode="html", link_preview=False)
 
@@ -38,9 +38,9 @@ async def pin(event, perm):
        return
     input_str = event.pattern_match.group(1)
     if "notify" in input_str:
-       await Anon.pin_message(event.chat_id, msg, notify=True)
+       await NisthaMusic.pin_message(event.chat_id, msg, notify=True)
        return
-    await Anon.pin_message(event.chat_id, msg)   
+    await NisthaMusic.pin_message(event.chat_id, msg)   
 
 @NisthaMusic.on(events.NewMessage(pattern="^[!?/]unpin"))
 @is_admin
@@ -51,7 +51,7 @@ async def unpin(event, perm):
        await event.reply("ʏᴏᴜ ᴀʀᴇ ᴍɪssɪɴɢ ᴛʜᴇ ғᴏʟʟᴏᴡɪɴɢ ʀɪɢʜᴛs ᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅs : ᴄᴀɴ ᴘɪɴ ᴍᴇssᴀɢᴇ.")
        return
     chat_id = (str(event.chat_id)).replace("-100", "")
-    ok = await Anon.get_messages(event.chat_id, ids=types.InputMessagePinned())
+    ok = await NisthaMusic.get_messages(event.chat_id, ids=types.InputMessagePinned())
     await Stark.unpin_message(event.chat_id, ok)
     await event.reply(f"Successfully unpinned [this](t.me/{event.chat.username}/{ok.id}) message.", link_preview=False)
 
@@ -67,8 +67,8 @@ async def permapin(event, perm):
     if not msg:
        await event.reply("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍsɢ ᴛᴏ ᴘᴇʀᴍᴀᴘɪɴ ɪᴛ.")
        return
-    hn = await Anon.send_message(event.chat_id, msg.message)
-    await Anon.pin_message(event.chat_id, hn, notify=True)
+    hn = await NisthaMusic.send_message(event.chat_id, msg.message)
+    await NisthaMusic.pin_message(event.chat_id, hn, notify=True)
 
 
 @NisthaMusic.on(events.NewMessage(pattern="^[!?/]unpinall"))
@@ -84,7 +84,7 @@ async def unpinall(event, perm):
 ᴛʜɪs ᴀᴄᴛɪᴏɴ ᴄᴀɴ'ᴛ ʙᴇ ᴜɴᴅᴏɴᴇ !
 """
 
-    await Anon.send_message(event.chat_id, UNPINALL, buttons=[
+    await NisthaMusic.send_message(event.chat_id, UNPINALL, buttons=[
     [Button.inline("ᴄᴏɴғɪʀᴍ", data="unpin")], 
     [Button.inline("ᴄᴀɴᴄᴇʟ", data="cancel")]])
 
@@ -94,7 +94,7 @@ async def confirm(event):
         return
     check = await event.client.get_permissions(event.chat_id, event.sender_id)
     if check.is_creator:
-        await Anon.unpin_message(event.chat_id)
+        await NisthaMusic.unpin_message(event.chat_id)
         await event.edit("ᴜɴᴘɪɴɴᴇᴅ ᴀʟʟ ᴍsɢs !")
         return 
 
