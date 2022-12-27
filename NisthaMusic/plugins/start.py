@@ -1,4 +1,4 @@
-from Anon import Anon, BOT_USERNAME
+from NisthaMusic import NisthaMusic, BOT_USERNAME
 from Config import Config
 from telethon import events, Button
 
@@ -14,7 +14,7 @@ PM_START_TEXT = """
 ➠ **ᴄʟɪᴄᴋ ᴏɴ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ 🔘 ꜰᴏʀ ᴍᴏʀᴇ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ **.
 """
 
-@Anon.on(events.NewMessage(pattern="^[?!/]start$"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]start$"))
 async def start(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -34,7 +34,7 @@ async def start(event):
 
 
 
-@Anon.on(events.callbackquery.CallbackQuery(data="start"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="start"))
 async def _(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
