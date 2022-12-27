@@ -1,6 +1,6 @@
 from telethon import events, Button
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from NisthaMusic.status import *
 import time
 from Config import Config
 
@@ -12,7 +12,7 @@ PR_HELP = """
 ‣ `/del` - ᴅᴇʟᴇᴛᴇ ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴛᴏ ᴍᴇssᴀɢᴇs.
 """
 
-@Anon.on(events.NewMessage(pattern=r"^[?!]purge"))
+@NisthaMusic.on(events.NewMessage(pattern=r"^[?!]purge"))
 @is_admin
 async def purge_messages(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -42,7 +42,7 @@ async def purge_messages(event, perm):
     text = f"Purged in {time_:0.2f} Second(s)"
     await event.respond(text, parse_mode='markdown')
 
-@Anon.on(events.NewMessage(pattern="^[!?/]spurge"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]spurge"))
 @is_admin
 async def spurge(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -69,7 +69,7 @@ async def spurge(event, perm):
 
     await event.client.delete_messages(event.chat_id, messages)
 
-@Anon.on(events.NewMessage(pattern="^[!?/]del$"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]del$"))
 @is_admin
 async def delete_messages(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -85,6 +85,6 @@ async def delete_messages(event, perm):
     await msg.delete()
     await event.delete()
 
-@Anon.on(events.callbackquery.CallbackQuery(data="purges"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="purges"))
 async def _(event):
     await event.edit(PR_HELP, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
