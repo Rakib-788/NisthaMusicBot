@@ -1,6 +1,6 @@
 import os
 from telethon import Button, events
-from Anon import *
+from NisthaMusic import *
 
 IMG = os.environ.get(
     "PING_PIC", "https://te.legra.ph/file/899e50f653c019748c90e.jpg"
@@ -14,7 +14,7 @@ ALIVE = os.environ.get(
 CAPTION = f"**ᴘ ᴏ ɴ ɢ !**\n\n   » {ms}\n   » ᴍʏ ᴍᴀsᴛᴇʀ ~ {ALIVE}"
 
 
-@Anon.on(events.NewMessage(pattern="^/ping"))
+@NisthaMusic.on(events.NewMessage(pattern="^/ping"))
 async def _(event):
     bsdk = [[
              Button.url("sᴜᴘᴘᴏʀᴛ", url="https://t.me/Hindi_English_Chatt"),
