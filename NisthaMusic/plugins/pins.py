@@ -1,6 +1,6 @@
 from telethon import events, Button, types
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from NisthaMusic.status import *
 from Config import Config
 
 PINS_TEXT = """
@@ -14,7 +14,7 @@ PINS_TEXT = """
 **» ɴᴏᴛᴇ:** ᴀᴅᴅ `ɴᴏᴛɪғʏ` ᴀғᴛᴇʀ /ᴘɪɴ ᴛᴏ ɴᴏᴛɪғʏ ᴀʟʟ ᴄʜᴀᴛ ᴍᴇᴍʙᴇʀs.
 """
 
-@Anon.on(events.NewMessage(pattern="^[?!/]pinned"))
+@NisthaMusic.on(events.NewMessage(pattern="^[?!/]pinned"))
 async def get_pinned(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -24,7 +24,7 @@ async def get_pinned(event):
     tem = f"The pinned message in {event.chat.title} is <a href=https://t.me/c/{chat_id}/{Ok.id}>here</a>."
     await event.reply(tem, parse_mode="html", link_preview=False)
 
-@Anon.on(events.NewMessage(pattern="^[!?/]pin"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]pin"))
 @is_admin
 async def pin(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -42,7 +42,7 @@ async def pin(event, perm):
        return
     await Anon.pin_message(event.chat_id, msg)   
 
-@Anon.on(events.NewMessage(pattern="^[!?/]unpin"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]unpin"))
 @is_admin
 async def unpin(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -55,7 +55,7 @@ async def unpin(event, perm):
     await Stark.unpin_message(event.chat_id, ok)
     await event.reply(f"Successfully unpinned [this](t.me/{event.chat.username}/{ok.id}) message.", link_preview=False)
 
-@Anon.on(events.NewMessage(pattern="^[!?/]permapin"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]permapin"))
 @is_admin
 async def permapin(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -71,7 +71,7 @@ async def permapin(event, perm):
     await Anon.pin_message(event.chat_id, hn, notify=True)
 
 
-@Anon.on(events.NewMessage(pattern="^[!?/]unpinall"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]unpinall"))
 async def unpinall(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -88,7 +88,7 @@ async def unpinall(event, perm):
     [Button.inline("ᴄᴏɴғɪʀᴍ", data="unpin")], 
     [Button.inline("ᴄᴀɴᴄᴇʟ", data="cancel")]])
 
-@Anon.on(events.callbackquery.CallbackQuery(data="unpin"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="unpin"))
 async def confirm(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -100,7 +100,7 @@ async def confirm(event):
 
     await event.answer("ɢʀᴏᴜᴘ ᴄʀᴇᴀᴛᴏʀ ʀᴇǫᴜɪʀᴇᴅ !")
 
-@Anon.on(events.callbackquery.CallbackQuery(data="cancel"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="cancel"))
 async def cancel(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -112,7 +112,7 @@ async def cancel(event):
     await event.answer("ɢʀᴏᴜᴘ ᴄʀᴇᴀᴛᴏʀ ʀᴇǫᴜɪʀᴇᴅ !")
 
 
-@Anon.on(events.callbackquery.CallbackQuery(data="pins"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="pins"))
 async def _(event):
 
     await event.edit(PINS_TEXT, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
