@@ -1,11 +1,11 @@
 import os
 
 from telethon import Button, events
-from NisthaMusic import Nistha
+from NisthaMusic import NisthaMusic
 from NisthaMusic.helpers.queues import get_active_chats
 
 
-@Nistha.on(events.NewMessage(pattern="^/activevoice"))
+@NisthaMusic.on(events.NewMessage(pattern="^/activevoice"))
 async def activevc(message):
     mystic = await message.reply(
         "⇆ ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ \n\n ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ғᴇᴡ ᴍɪɴᴛ."
