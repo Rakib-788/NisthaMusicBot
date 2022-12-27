@@ -2,7 +2,7 @@ from typing import *
 import random
 from typing import Dict, List, Union
 
-from Anon import *
+from NisthaMusic import *
 from telethon import *
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
