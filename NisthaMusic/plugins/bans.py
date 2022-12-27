@@ -1,5 +1,5 @@
-from Anon import Anon
-from Anon.status import *
+from NisthaMusic import NisthaMusic
+from Nistha.status import *
 from Config import Config
 from telethon import events, Button
 from telethon.tl.functions.channels import EditBannedRequest
@@ -18,7 +18,7 @@ BANS_TEXT = """
 ‣ `/dkick` - ᴛᴏ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ᴍsɢ ᴀɴᴅ ᴋɪᴄᴋs ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀs.
 """
 
-@Anon.on(events.NewMessage(pattern="^[!?/]kick ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]kick ?(.*)"))
 @is_admin
 async def kick(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -42,7 +42,7 @@ async def kick(event, perm):
     await Anon.kick_participant(event.chat_id, input_str or replied_user)
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴋɪᴄᴋᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ғʀᴏᴍ {event.chat.title}")
 
-@Anon.on(events.NewMessage(pattern="^[!?/]kickme"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]kickme"))
 async def kickme(event):
     if Config.MANAGEMENT_MODE == "ENABLE":
         return
@@ -58,7 +58,7 @@ async def kickme(event):
     await event.reply("ᴏᴋ, ᴀs ʏᴏᴜʀ ᴡɪsʜ")
     await Anon.kick_participant(event.chat_id, event.sender_id)
 
-@Anon.on(events.NewMessage(pattern="^[!?/]ban ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]ban ?(.*)"))
 @is_admin
 async def ban(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -80,7 +80,7 @@ async def ban(event, perm):
     await Anon(EditBannedRequest(event.chat_id, replied_user, ChatBannedRights(until_date=None, view_messages=True)))
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ʙᴀɴɴᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ɪɴ {event.chat.title}")
 
-@Anon.on(events.NewMessage(pattern="^[!?/]unban ?(.*)"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]unban ?(.*)"))
 @is_admin
 async def unban(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -102,7 +102,7 @@ async def unban(event, perm):
     await Anon(EditBannedRequest(event.chat_id, replied_user, ChatBannedRights(until_date=None, view_messages=False)))
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴜɴʙᴀɴɴᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ɪɴ {event.chat.title}")
 
-@Anon.on(events.NewMessage(pattern="^[!?/]skick"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]skick"))
 @is_admin
 async def skick(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -123,7 +123,7 @@ async def skick(event, perm):
     await Anon.kick_participant(event.chat_id, x)
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴋɪᴄᴋᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ғʀᴏᴍ {event.chat.title}")
 
-@Anon.on(events.NewMessage(pattern="^[!?/]dkick"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]dkick"))
 @is_admin
 async def dkick(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -142,7 +142,7 @@ async def dkick(event, perm):
     await Anon.kick_participant(event.chat_id, x.sender_id)
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ᴋɪᴄᴋᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ғʀᴏᴍ {event.chat.title}")
 
-@Anon.on(events.NewMessage(pattern="^[!?/]dban"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]dban"))
 @is_admin
 async def dban(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -163,7 +163,7 @@ async def dban(event, perm):
     await event.reply("sᴜᴄᴄᴇssғᴜʟʟʏ ʙᴀɴɴᴇᴅ !")
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ʙᴀɴɴᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ғʀᴏᴍ {event.chat.title}")
 
-@Anon.on(events.NewMessage(pattern="^[!?/]sban"))
+@NisthaMusic.on(events.NewMessage(pattern="^[!?/]sban"))
 @is_admin
 async def sban(event, perm):
     if Config.MANAGEMENT_MODE == "ENABLE":
@@ -183,6 +183,6 @@ async def sban(event, perm):
     await Anon(EditBannedRequest(event.chat_id, x, ChatBannedRights(until_date=None, view_messages=True)))
     await event.reply(f"sᴜᴄᴄᴇssғᴜʟʟʏ ʙᴀɴɴᴇᴅ [{info.first_name}](tg://user?id={replied_user}) ғʀᴏᴍ {event.chat.title}")
 
-@Anon.on(events.callbackquery.CallbackQuery(data="bans"))
+@NisthaMusic.on(events.callbackquery.CallbackQuery(data="bans"))
 async def banhelp(event):
     await event.edit(BANS_TEXT, buttons=[[Button.inline("ʙᴀᴄᴋ", data="help")]])
