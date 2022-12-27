@@ -16,8 +16,8 @@ from Config import Config
 BOT_USERNAME = Config.BOT_USERNAME
 ASSISTANT_ID = []
 
-bot = TelegramClient('Nistha', api_id=Config.API_ID, api_hash=Config.API_HASH)
-Nistha = bot.start(bot_token=Config.BOT_TOKEN)
+bot = TelegramClient('NisthaMusic', api_id=Config.API_ID, api_hash=Config.API_HASH)
+NisthaMusic = bot.start(bot_token=Config.BOT_TOKEN)
 client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Config.API_HASH)
 call_py = PyTgCalls(client)
 client.start()
