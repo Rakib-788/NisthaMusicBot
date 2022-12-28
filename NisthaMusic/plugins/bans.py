@@ -1,5 +1,5 @@
 from NisthaMusic import NisthaMusic
-from Nistha.status import *
+from NisthaMusic.status import *
 from Config import Config
 from telethon import events, Button
 from telethon.tl.functions.channels import EditBannedRequest
