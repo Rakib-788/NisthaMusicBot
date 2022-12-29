@@ -18,6 +18,6 @@ CAPTION = f"**ᴘ ᴏ ɴ ɢ !**\n\n   » {ms}\n   » ᴍʏ ᴍᴀsᴛᴇʀ ~ {AL
 async def _(event):
     bsdk = [[
              Button.url("sᴜᴘᴘᴏʀᴛ", url="https://t.me/Hindi_English_Chatt"),
-             Button.url("ᴜᴘᴅᴀᴛᴇs", url="https://t.me/TheBotUpdate")
+             Button.url("ᴜᴘᴅᴀᴛᴇs", url="https://t.me/Fake_Peoples")
                        ]]
     await Anon.send_file(event.chat_id, IMG, caption=CAPTION, buttons=bsdk)
