@@ -9,7 +9,7 @@ class Config(object):
     MANAGEMENT_MODE = os.environ.get("MANAGEMENT_MODE", None)
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "NisthaMusicBot")
     SUPPORT = os.environ.get("SUPPORT", "Hindi_English_Chatt")
-    CHANNEL = os.environ.get("CHANNEL", "TheBotUpdate")
+    CHANNEL = os.environ.get("CHANNEL", "Fake_Peoples")
     START_IMG = os.environ.get("START_IMG", "https://te.legra.ph/file/535a7db55e251a316b807.jpg")
     CMD_IMG = os.environ.get("CMD_IMG", "https://te.legra.ph/file/5b5e408cfd6a6ee9e4bd7.jpg")
     ASSISTANT_ID = int(os.environ.get("ASSISTANT_ID", "5945481632")) # required
